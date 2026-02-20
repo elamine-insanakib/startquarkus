@@ -14,9 +14,9 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import java.util.List;
-import java.time.LocalDateTime;
 
-import org.acme.entity.Ticket;
+import org.acme.entity.TicketEntity;
+import org.acme.resource.TicketDto;
 import org.acme.service.TicketService;
 
 @Path("/tickets")
@@ -28,20 +28,20 @@ public class TicketResource {
     TicketService ticketService; // Injection du service
 
     @GET
-    public List<Ticket> getTickets() {
+    public List<TicketEntity> getTickets() {
         return ticketService.getAllTickets(); // Récupère tous les tickets depuis le service
     }
 
     @GET
     @Path("/{id}")
-    public Ticket getTicket(@PathParam("id") Long id) {
+    public TicketDto getTicket(@PathParam("id") Long id) {
         return ticketService.getTicket(id);
     }
 
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateTicket(@PathParam("id") Long id, Ticket ticket) {
+    public Response updateTicket(@PathParam("id") Long id, TicketDto ticket) {
         ticketService.updateTicket(id, ticket);
         return Response.status(204).build();
     }
@@ -55,7 +55,7 @@ public class TicketResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response createTicket(Ticket ticket) {
+    public Response createTicket(TicketDto ticket) {
         ticketService.createTicket(ticket); // Crée un ticket en base
         return Response.status(201).entity(ticket).build(); // Retourne 201 Created
     }
