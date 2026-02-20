@@ -1,0 +1,6 @@
+org\acme\TicketResource.class
+org\acme\service\TicketService.class
+org\acme\entity\Ticket.class
+META-INF\panache-archive.marker
+org\acme\WorldResource.class
+org\acme\GreetingResource.class

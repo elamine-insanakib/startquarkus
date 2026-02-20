@@ -1,0 +1,4 @@
+org\acme\getting\started\testing\WorldResourceTest.class
+org\acme\getting\started\testing\TicketResourceTest.class
+org\acme\getting\started\testing\GreetingResourceTest.class
+META-INF\panache-archive.marker
